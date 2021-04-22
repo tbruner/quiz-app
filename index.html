@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <link href="css/index.css" type="text/css" rel="stylesheet">
-  <title>Breakout Game</title>
-</head>
-<body>
-  <canvas id="myCanvas" width="480" height="320"></canvas>
-  <script src="scripts/main.js"></script>
-</body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Quiz Mania</title>
+    <link href="index.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="title"></h1>
+      <div class="content">
+        <div id="qNumber"></div>
+        <div id="question-text"></div>
+        <div class="options">
+          <button class="btn questions" id="A"></button>
+          <button class="btn questions" id="B"></button>
+          <button class="btn questions" id="C"></button>
+          <button class="btn questions" id="D"></button>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn" id="prev">PREVIOUS</button>
+        <button class="btn" id="advance">NEXT</button>
+      </div>
+    </div>
+  </body>
 </html>

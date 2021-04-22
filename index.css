@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px;
+}
+body {
+  background: linear-gradient(#e90303, #f27813, #f3b407);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  margin: 25px;
+  padding: 25px;
+  border-radius: 8px;
+  height: 70vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #444444;
+}
+#title {
+  font-size: 1.75em;
+}
+#qNumber {
+  padding: 20px;
+  padding-bottom: 0px;
+}
+#question-text {
+  padding: 20px;
+  text-align: center;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.questions {
+  width: 35vw;
+}
+.btn {
+  border: 0px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #656565;
+}
+.options {
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.controls {
+  padding: 10px;
+}
+.selected {
+  background: #46a049;
+}
+.selected:hover {
+  background: #569039;
+}
+.hide {
+  display: none;
+}
+.qSelect {
+  background: #555;
+}

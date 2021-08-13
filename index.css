@@ -1,12 +1,16 @@
+@font-face {
+  font-family: pFive;
+  src: url(p5hatty.ttf);
+}
 * {
   margin: 0;
   padding: 0;
   color: white;
-  font-family: 'Nunito', sans-serif;
-  font-size: 24px;
+  font-family: pFive, sans-serif;
+  font-size: 36px;
 }
 body {
-  background: linear-gradient(#e90303, #f27813, #f3b407);
+  background: #F70000;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -23,7 +27,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #444444;
+  background: black;
 }
 #title {
   font-size: 1.75em;

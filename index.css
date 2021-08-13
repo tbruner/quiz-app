@@ -52,13 +52,13 @@ body {
 .btn {
   border: 0px;
   background: rgba(0, 0, 0, 0);
-  border-radius: 8px;
   padding: 10px;
   margin: 5px;
   cursor: pointer;
 }
 .btn:hover {
-  background: #656565;
+  background: white;
+  color: black;
 }
 .options {
   padding: 3px;
@@ -71,10 +71,11 @@ body {
   padding: 10px;
 }
 .selected {
-  background: #46a049;
+  color: black;
+  background: white;
 }
 .selected:hover {
-  background: #569039;
+  background: #DDD;
 }
 .hide {
   display: none;

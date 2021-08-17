@@ -7,226 +7,367 @@ const cBtn = document.getElementById("C");
 const dBtn = document.getElementById("D");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("advance");
+const select = document.getElementById("select");
+const winSound = document.getElementById("win");
+const errorSound = document.getElementById("error");
 
-let mathQuestions = [
+let midnightMiracle = [
   {
-    question: "Solve for x:<br />20 = 5x +10",
+    question: "When Kanji joined your team what was his default weapon?",
     answers: [
-      {option:"10",answer:false},
-      {option:"1",answer:false},
-      {option:"2",answer:true},
-      {option:"0",answer:false},
+      {option:"Yasogami Desk",answer:false},
+      {option:"Iron Schoolbag",answer:false},
+      {option:"Folding Chair",answer:true},
+      {option:"Wooden Sword",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "Which number is the lowest value: -25, 7, -6, 25",
+    question: "Among the boys of Yasogami High, what is the ritual of asking Yukiko out on a date called?",
     answers: [
-      {option:"-25",answer:true},
-      {option:"7",answer:false},
-      {option:"-6",answer:false},
-      {option:"25",answer:false},
+      {option:"The Amagi Adventure",answer:false},
+      {option:"The Amagi Trials",answer:false},
+      {option:"The Amagi Challenge",answer:true},
+      {option:"The Great Amagi Chase",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "You purchase a TV, video game console, and headphones costing "
-    +"$500, $300, and $50 respectively. With a sales tax of 6% what is your total cost?",
+    question: "All the lockers at the entrance in the Steamy Bathhouse have the same number. What is that number? ",
     answers: [
-      {option:"850",answer:false},
-      {option:"900",answer:false},
-      {option:"856",answer:false},
-      {option:"901",answer:true},
+      {option:"201",answer:true},
+      {option:"313",answer:false},
+      {option:"118",answer:false},
+      {option:"307",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "A train leaves Detroit at 8 am and will arrive in Chicago at 10:30 am. "
-    +"If the train travels 290 miles, how fast was the train traveling in miles per hour?",
+    question: "If you were watching the band show at Junes on October 10th, who would be on the far right of the stage? ",
     answers: [
-      {option:"98 mph",answer:false},
-      {option:"116 mph",answer:true},
-      {option:"112 mph",answer:false},
-      {option:"122 mph",answer:false},
+      {option:"Yosuke",answer:false},
+      {option:"Teddie",answer:false},
+      {option:"Yukiko",answer:false},
+      {option:"Naoto",answer:true},
     ],
     answered: -1,
   },
   {
-    question: "What is the next number in this sequence? 1, 2, 4, 8",
+    question: "Yosuke named the Christmas Cake made by the girls “____ Christmas Edition” Fill in the blank.",
     answers: [
-      {option:"16",answer:true},
-      {option:"10",answer:false},
-      {option:"8",answer:false},
-      {option:"12",answer:false},
+      {option:"food",answer:false},
+      {option:"Mystery Food X",answer:true},
+      {option:"persona",answer:false},
+      {option:"bad food",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "How many chairs are there in Class 2-2 of Yasogami High School?",
+    answers: [
+      {option:"31",answer:false},
+      {option:"28",answer:false},
+      {option:"26",answer:false},
+      {option:"29",answer:true},
+    ],
+    answered: -1,
+  },
+  {
+    question: "What was the name of the teacher who gave you the special lecture at Gekkoukan High School?",
+    answers: [
+      {option:"Edogawa",answer:true},
+      {option:"Morooka",answer:false},
+      {option:"Kamoshida",answer:false},
+      {option:"Kashiwagi",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "What is the weakness of Izanagi, the first Persona you obtained?",
+    answers: [
+      {option:"Wind",answer:true},
+      {option:"Electricity",answer:false},
+      {option:"Bless",answer:false},
+      {option:"Fire",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "Ryotaro Dojima is never without his suit. What color necktie does he wear?",
+    answers: [
+      {option:"Plain Red",answer:true},
+      {option:"Plain Blue",answer:false},
+      {option:"Blue Striped",answer:false},
+      {option:"Yellow Striped",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "What is the full name of Mr. Morooka, more popularly known as Kning Moron?",
+    answers: [
+      {option:"Kinshiro Morooka",answer:true},
+      {option:"Kinjiro Morooka",answer:false},
+      {option:"Kingoro Morooka",answer:false},
+      {option:"Kinichiro Morooka",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "How many desks are there in Class 2-2 of Yasogami High School?",
+    answers: [
+      {option:"30",answer:false},
+      {option:"34",answer:false},
+      {option:"32",answer:false},
+      {option:"28",answer:true},
+    ],
+    answered: -1,
+  },
+  {
+    question: "Which is the name of the weekend shopping program with the catchy tune?",
+    answers: [
+      {option:"Tanaka's Awesome",answer:false},
+      {option:"Tanaka's Amazing",answer:true},
+      {option:"Tanaka's Comsumables",answer:false},
+      {option:"Katana's Amazing",answer:false},
     ],
     answered: -1,
   },
 ];
 
-let jsQuestions = [
+let pFive = [
   {
-    question: "How do you write a conditional statement for x is not equal to 5?",
+    question: "What is one of the two weaknesses of Arsène, Joker's starting persona?",
     answers: [
-      {option:"if x notequal 5:",answer:false},
-      {option:"if x not = 5:",answer:false},
-      {option:"if(x != 5)",answer:true},
-      {option:"if(x |= 5)",answer:false},
+      {option:"Electricity",answer:false},
+      {option:"Wind",answer:false},
+      {option:"Ice",answer:true},
+      {option:"Fire",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "Which of the following is a valid variable name?",
+    question: "What color is Morgana's scarf?",
     answers: [
-      {option:"2two",answer:false},
-      {option:"let",answer:false},
-      {option:"%percent",answer:false},
-      {option:"_count",answer:true},
+      {option:"Red",answer:false},
+      {option:"Blue",answer:false},
+      {option:"White",answer:false},
+      {option:"Yellow",answer:true},
     ],
     answered: -1,
   },
   {
-    question: "If var array = [2, 4, 6, 8, 10], what does array[2] return?",
+    question: "What does Iwai have tattoed on his neck?",
     answers: [
-      {option:"4",answer:false},
-      {option:"2",answer:false},
-      {option:"6",answer:true},
-      {option:"8",answer:false},
+      {option:"His son's name",answer:false},
+      {option:"The Phantom Theives logo",answer:false},
+      {option:"Gecko",answer:true},
+      {option:"Skull",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "Which of the following code creates a new object?",
+    question: "Yusuke rearranges figures of what charaters in Futabas room?",
     answers: [
-      {option:"var book = Object()",answer:false},
-      {option:"var book = new Object()",answer:true},
-      {option:"var object() = book",answer:false},
-      {option:"var book = new Book()",answer:false},
+      {option:"Pocket Minions",answer:false},
+      {option:"Phoenix Ranger Featherman R",answer:true},
+      {option:"Snario Bros.",answer:false},
+      {option:"Maruto",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "Which of the following is NOT a valid loop statement?",
+    question: "After defeating Kamoshida and take his treasure you sell it for how much?",
     answers: [
-      {option:"for(x of array)",answer:false},
-      {option:"while(x&ltarray.length)",answer:false},
-      {option:"for(x in array)",answer:false},
-      {option:"for(x=0; x&ltarray.length; x++)",answer:true},
-    ],
-    answered: -1,
-  },
-];
-
-let sportsQuestions = [
-  {
-    question: "How many medals did China win at the 2008 summer Olympics in Beijing?",
-    answers: [
-      {option:"112",answer:false},
-      {option:"100",answer:true},
-      {option:"88",answer:false},
-      {option:"92",answer:false},
-    ],
-    answered: -1,
-  },
-  {
-    question: "What sporting event is held every year on Memorial Day?",
-    answers: [
-      {option:"Hot Dog eating contest",answer:false},
-      {option:"Corn hole championships",answer:false},
-      {option:"Indianapolis 500",answer:true},
-      {option:"The US Open",answer:false},
-    ],
-    answered: -1,
-  },
-  {
-    question: "In what year were women first allowed to compete in the Olympics and in what sport?",
-    answers: [
-      {option:"1900, tennis",answer:true},
-      {option:"1928, archery",answer:false},
-      {option:"1948, gymnastics",answer:false},
-      {option:"1960, figure skating",answer:false},
-    ],
-    answered: -1,
-  },
-  {
-    question: "What is the only NFL team to never play in or host a Super Bowl?",
-    answers: [
-      {option:"Detroit Lions",answer:false},
-      {option:"Cleveland Browns",answer:true},
-      {option:"Jacksonville Jaguars",answer:false},
-      {option:"Tennessee Titans",answer:false},
-    ],
-    answered: -1,
-  },
-  {
-    question: "Who is the first baseball player to appear on a Wheaties box?",
-    answers: [
-      {option:"Lou Gehrig",answer:true},
-      {option:"Babe Ruth",answer:false},
-      {option:"Nolan Ryan",answer:false},
-      {option:"Hank Aaron",answer:false},
+      {option:"25,000 yen",answer:false},
+      {option:"10,000 yen",answer:false},
+      {option:"50,000 yen",answer:false},
+      {option:"30,000 yen",answer:true},
     ],
     answered: -1,
   },
 ];
 
-let jeopardyQuestions = [
+let pFiveClass = [
   {
-    question: "GIMME THE NUMBERS!<br />It's the difference in the number of states in 2020 vs the number of states in 1790",
+    question: "What is the name of that phenomenon where the second hand looks like it’s stopped moving?",
     answers: [
-      {option:"What is 30?",answer:false},
-      {option:"What is 32?",answer:false},
-      {option:"What is 37?",answer:true},
-      {option:"What is 28?",answer:false},
+      {option:"Vierordt's law",answer:false},
+      {option:"A time paradox",answer:false},
+      {option:"The World",answer:false},
+      {option:"Cronostasis",answer:true},
     ],
     answered: -1,
   },
   {
-    question: "BUT<br />It's also known as your umbilicus",
+    question: "Which peg-legged, parrot toting historical figure’s appearance became visual shorthand for pirates?",
     answers: [
-      {option:"What is belly button?",answer:true},
-      {option:"What is stomach?",answer:false},
-      {option:"What is middle toe?",answer:false},
-      {option:"What is arm pit?",answer:false},
+      {option:"Ann Bonny",answer:false},
+      {option:"John Silver",answer:true},
+      {option:"Captain Kidd",answer:false},
+      {option:"James Cook",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "HEAVY METAL<br />In 2016 a passerby on a Manhattan street grabbed an 86-pound, $1.6 million bucket of this off the back of an armored car",
+    question: "A soul is composed of appetite, spirit and what else?",
     answers: [
-      {option:"What is gold?",answer:true},
-      {option:"What is silver?",answer:false},
-      {option:"What is platinum?",answer:false},
-      {option:"What is copper?",answer:false},
+      {option:"Greed",answer:false},
+      {option:"Logic",answer:true},
+      {option:"Fear",answer:false},
+      {option:"Desire",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "CAR CULTURE<br />The millionth Cadillac built was this 1949 coupe just beginning its long history",
+    question: "What’s the meaning of the original Chinese phrase that mantou dumplings’ name came from?",
     answers: [
-      {option:"What is Escaldae?",answer:false},
-      {option:"What is DeVille?",answer:true},
-      {option:"What is Eldorado?",answer:false},
-      {option:"What is Mirage?",answer:false},
+      {option:"Warlord's eye",answer:false},
+      {option:"Warrior's fist",answer:false},
+      {option:"Barbarian's head",answer:true},
+      {option:"Tactician's tounge",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "10-LETTER WORDS<br />It's a plump turkey, or the brand that operates a Thanksgiving turkey help hotline",
+    question: "What event did Emperor Nero add to the Olympics so he could participate?",
     answers: [
-      {option:"What is Cumbersome?",answer:false},
-      {option:"What is Butterhead?",answer:false},
-      {option:"What is Butterball?",answer:true},
-      {option:"What is Jenniohead?",answer:false},
+      {option:"Chariot Racing",answer:false},
+      {option:"Acting",answer:false},
+      {option:"Singing",answer:true},
+      {option:"All of them",answer:false},
     ],
     answered: -1,
   },
   {
-    question: "ANCIENT CITIES<br />This city that was once the capital of ancient Eygpt shares it's name with a city in Tennessee",
+    question: `What is the literal translation of the phrase "femme fatale?"`,
     answers: [
-      {option:"What is Nashville?",answer:false},
-      {option:"What is Memphis?",answer:true},
-      {option:"What is Chattanooga?",answer:false},
-      {option:"What is Knoxville?",answer:false},
+      {option:"Fatal Women",answer:true},
+      {option:"Honey trap",answer:false},
+      {option:"Women of fate",answer:false},
+      {option:"Soul mate",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "What do we call the phenomenon where believing in a treatment’s power is enough to improve your condition?",
+    answers: [
+      {option:"Positive feedback",answer:false},
+      {option:"The placebo effect",answer:true},
+      {option:"The spasiba effect",answer:false},
+      {option:"A miracle",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "The golden ratio is 1:1.618 but do you know the silver ratio?",
+    answers: [
+      {option:"1:1.414",answer:true},
+      {option:"1:1.303",answer:false},
+      {option:"1:1.314",answer:false},
+      {option:"1:1.712",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "Which of these animals is involved in an English idiom about the weather?",
+    answers: [
+      {option:"Dogs",answer:true},
+      {option:"Giraffes",answer:false},
+      {option:"Snails",answer:false},
+      {option:"Cows",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "How many white and black shapes are there respectively on a soccer ball?",
+    answers: [
+      {option:"18 white, 9 black",answer:false},
+      {option:"30 white, 8 black",answer:false},
+      {option:"It varies",answer:false},
+      {option:"20 white, 12 black",answer:true},
+    ],
+    answered: -1,
+  },
+  {
+    question: "Who invented the Guillotine",
+    answers: [
+      {option:"Charles-Henri Sanson",answer:false},
+      {option:"Louis XV",answer:false},
+      {option:"Joseph-Ignance Gullotin",answer:true},
+      {option:"Marie Antoinette",answer:false},
+    ],
+    answered: -1,
+  },
+];
+
+let pFourClass = [
+  {
+    question: "What is the year before 1 AD called?",
+    answers: [
+      {option:"-1 AD",answer:false},
+      {option:"Year 0",answer:false},
+      {option:"1 BC",answer:true},
+      {option:"0 AD",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "What property of whole numbers doesn't exist?",
+    answers: [
+      {option:"Marriage numbers",answer:true},
+      {option:"Amicable numbers",answer:false},
+      {option:"Betrothed numbers",answer:false},
+      {option:"Sociable numbers",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "What was the first economic bubble incident in the world?",
+    answers: [
+      {option:"Tulip mania",answer:true},
+      {option:"The Great Depression",answer:false},
+      {option:"The Mississippi Company",answer:false},
+      {option:"The South Sea Bubble",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "What is the greatest canyon in the solar system?",
+    answers: [
+      {option:"Kurobe Canyon",answer:false},
+      {option:"Valles Marineris",answer:true},
+      {option:"The Grand Canyon",answer:false},
+      {option:"Kali Gandaki Gorge",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: `What sport is "heikin-dai"?`,
+    answers: [
+      {option:"High Dive",answer:false},
+      {option:"Uneven Bars",answer:false},
+      {option:"Balance Beam",answer:true},
+      {option:"Synchronized Dancing",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "What kind of exercise builds up lactic acid in the muscles?",
+    answers: [
+      {option:"Aerobics",answer:false},
+      {option:"Anaerobics",answer:true},
+      {option:"Oxyrobics",answer:false},
+      {option:"All of them",answer:false},
+    ],
+    answered: -1,
+  },
+  {
+    question: "Which one is these is the name of a real river?",
+    answers: [
+      {option:"Lame Duck River",answer:false},
+      {option:"Pis Pis River",answer:true},
+      {option:"Mahony's Phony River",answer:false},
+      {option:"The River of Dreams",answer:false},
     ],
     answered: -1,
   },
@@ -237,12 +378,13 @@ function submit(questions) {
   bBtn.classList.add("hide");
   cBtn.classList.add("hide");
   dBtn.classList.add("hide");
+  nextBtn.classList.remove("selected");
   qNumber.classList.add("hide");
   prevBtn.innerHTML="NEW QUIZ";
   nextBtn.innerHTML="RESTART";
   let message = "";
   let score = 0;
-  for(let i=0; i<questions.length; i++) {
+  for(let i=0; i<5; i++) {
     let ans = questions[i].answered;
     if(ans > -1) {
       if(questions[i].answers[ans].answer){
@@ -250,8 +392,11 @@ function submit(questions) {
       }
     }
   }
-  message += "You got " + score + " correct out of " + questions.length + "<br>Solution:";
-  for(let i=0; i<questions.length; i++) {
+  if(score === 5) {
+    setTimeout(() => winSound.play(), 500);
+  }
+  message += "You got " + score + " correct out of 5<br>Solution:";
+  for(let i=0; i<5; i++) {
     let ans;
     for(x of questions[i].answers) {
       if(x.answer) {
@@ -263,12 +408,12 @@ function submit(questions) {
   questionText.innerHTML = message
 
   prevBtn.onclick = () => {
+    select.play();
     aBtn.classList.remove("hide");
     bBtn.classList.remove("hide");
     cBtn.classList.remove("hide");
     dBtn.classList.remove("hide");
     qNumber.classList.remove("hide");
-    nextBtn.classList.remove("selected");
     nextBtn.innerHTML="NEXT";
     prevBtn.innerHTML="PREVIOUS";
     for(x of questions) {
@@ -278,6 +423,8 @@ function submit(questions) {
   }
 
   nextBtn.onclick = () => {
+    select.play();
+    questions.sort(() => Math.random() - 0.5);
     aBtn.classList.remove("hide");
     bBtn.classList.remove("hide");
     cBtn.classList.remove("hide");
@@ -294,7 +441,7 @@ function submit(questions) {
 }
  
 function displayQuestion(questions, currentQuestion) {
-  qNumber.innerHTML=currentQuestion + 1 + " of " + questions.length;
+  qNumber.innerHTML=currentQuestion + 1 + " of " + 5;
   questionText.innerHTML=questions[currentQuestion].question;
   aBtn.innerHTML=questions[currentQuestion].answers[0].option;
   bBtn.innerHTML=questions[currentQuestion].answers[1].option;
@@ -361,12 +508,13 @@ function displayQuestion(questions, currentQuestion) {
 }
 
 function runQuiz(questions, nextQuestion) {
-  currentQuestion=nextQuestion;
+  currentQuestion = nextQuestion;
   displayQuestion(questions, currentQuestion);
 
-  if(currentQuestion==questions.length-1){
+  if(currentQuestion == 4){
     nextBtn.innerHTML="SUBMIT";
     nextBtn.onclick = () => {
+      select.play();
       submit(questions);
     }
   }
@@ -374,6 +522,7 @@ function runQuiz(questions, nextQuestion) {
   else {
     nextBtn.innerHTML="NEXT";
     nextBtn.onclick = () => {
+      select.play();
       currentQuestion++;
       nextBtn.classList.remove("selected");
       aBtn.classList.remove("qSelect");
@@ -390,6 +539,7 @@ function runQuiz(questions, nextQuestion) {
   else{
     prevBtn.classList.remove("hide");
     prevBtn.onclick = () => {
+      select.play();
       currentQuestion--;
       runQuiz(questions, currentQuestion);
     }
@@ -397,12 +547,12 @@ function runQuiz(questions, nextQuestion) {
 }
 
 function quizSelect() {
-  title.innerHTML = "Quiz Mania";
+  title.innerHTML = "Persona Quiz Series";
   questionText.innerHTML = "Select a quiz:";
-  aBtn.innerHTML = "Math Quiz";
-  bBtn.innerHTML = "Sports Quiz";
-  cBtn.innerHTML = "Javascript Quiz";
-  dBtn.innerHTML = "Jeopardy Quiz";
+  aBtn.innerHTML = "Teddies Midnight Trivia Miracle Quiz";
+  bBtn.innerHTML = "Persona 5 quiz";
+  cBtn.innerHTML = "Persona 4 classroom quiz";
+  dBtn.innerHTML = "Persona 5 classroom quiz";
   prevBtn.classList.add("hide");
   qNumber.classList.add("hide");
   aBtn.classList.remove("qSelect");
@@ -413,8 +563,9 @@ function quizSelect() {
   let name, quiz = null;
 
   aBtn.onclick = () => {
-    quiz=mathQuestions;
-    name = "Math Quiz";
+    quiz = midnightMiracle;
+    quiz.sort(() => Math.random() - 0.5);
+    name = "Teddies Midnight Trivia Miracle Quiz";
     //clear selection
     bBtn.classList.remove("qSelect");
     cBtn.classList.remove("qSelect");
@@ -423,8 +574,9 @@ function quizSelect() {
     nextBtn.classList.add("selected");
   }
   bBtn.onclick = () => {
-    quiz=sportsQuestions;
-    name = "Sports Quiz";
+    quiz = pFive;
+    quiz.sort(() => Math.random() - 0.5);
+    name = "Persona 5 quiz";
     //clear selection
     aBtn.classList.remove("qSelect");
     cBtn.classList.remove("qSelect");
@@ -433,8 +585,9 @@ function quizSelect() {
     nextBtn.classList.add("selected");
   }
   cBtn.onclick = () => {
-    quiz=jsQuestions;
-    name = "Javascript Quiz";
+    quiz = pFourClass;
+    quiz.sort(() => Math.random() - 0.5);
+    name = "Persona 4 classroom quiz";
     //clear selection
     aBtn.classList.remove("qSelect");
     bBtn.classList.remove("qSelect");
@@ -443,8 +596,9 @@ function quizSelect() {
     nextBtn.classList.add("selected");
   }
   dBtn.onclick = () => {
-    quiz=jeopardyQuestions;
-    name = "Jeopardy Quiz";
+    quiz = pFiveClass;
+    quiz.sort(() => Math.random() - 0.5);
+    name = "Persona 5 classroom quiz";
     //clear selection
     aBtn.classList.remove("qSelect");
     bBtn.classList.remove("qSelect");
@@ -454,11 +608,15 @@ function quizSelect() {
   }
 
   nextBtn.onclick = () => {
+    select.play();
     if(quiz) {
       nextBtn.classList.remove("selected");
       qNumber.classList.remove("hide");
       title.innerHTML = name;
       runQuiz(quiz, 0);
+    }
+    else {
+      errorSound.play();
     }
   }
 }

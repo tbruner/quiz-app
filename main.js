@@ -53,12 +53,12 @@ let midnightMiracle = [
     answered: -1,
   },
   {
-    question: "Yosuke named the Christmas Cake made by the girls “____ Christmas Edition” Fill in the blank.",
+    question: "What color is Teddie's tail?",
     answers: [
-      {option:"food",answer:false},
-      {option:"Mystery Food X",answer:true},
-      {option:"persona",answer:false},
-      {option:"bad food",answer:false},
+      {option:"Red",answer:false},
+      {option:"Blue",answer:true},
+      {option:"White",answer:false},
+      {option:"He doesn't have a tail",answer:false},
     ],
     answered: -1,
   },

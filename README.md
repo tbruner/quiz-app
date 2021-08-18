@@ -20,4 +20,4 @@ already represented you are more than welcome to do so.
 
 ## Play
 
-Click this link to play the quiz: [Quiz Mania](https://tbruner.github.io/quiz-app/)
+Click this link to play the quiz: [Persona Quiz](https://tbruner.github.io/quiz-app/)

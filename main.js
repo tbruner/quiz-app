@@ -16,7 +16,7 @@ let midnightMiracle = [
     question: "When Kanji joined your team what was his default weapon?",
     answers: [
       {option:"Yasogami Desk",answer:false},
-      {option:"Iron Schoolbag",answer:false},
+      {option:"Iron Schoolbag",answer:faRemove Twitter link and update LinkedIn urllse},
       {option:"Folding Chair",answer:true},
       {option:"Wooden Sword",answer:false},
     ],
@@ -136,7 +136,7 @@ let midnightMiracle = [
 
 let pFive = [
   {
-    question: "What is one of the two weaknesses of Arsène, Joker's starting persona?",
+    question: "What is one of the two weaknesses of Arsene, Joker's starting persona?",
     answers: [
       {option:"Electricity",answer:false},
       {option:"Wind",answer:false},
@@ -169,7 +169,7 @@ let pFive = [
     question: "Yusuke rearranges figures of what charaters in Futabas room?",
     answers: [
       {option:"Pocket Minions",answer:false},
-      {option:"Phoenix Ranger Featherman R",answer:true},
+      {option:"Phoenix Rangers Featherman R",answer:true},
       {option:"Snario Bros.",answer:false},
       {option:"Maruto",answer:false},
     ],

@@ -16,7 +16,7 @@ let midnightMiracle = [
     question: "When Kanji joined your team what was his default weapon?",
     answers: [
       {option:"Yasogami Desk",answer:false},
-      {option:"Iron Schoolbag",answer:faRemove Twitter link and update LinkedIn urllse},
+      {option:"Iron Schoolbag",answer:false},
       {option:"Folding Chair",answer:true},
       {option:"Wooden Sword",answer:false},
     ],

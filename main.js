@@ -176,7 +176,7 @@ let pFive = [
     answered: -1,
   },
   {
-    question: "After defeating Kamoshida and take his treasure you sell it for how much?",
+    question: "After defeating Kamoshida and stealing his treasure, how much do the Phantom Thieves sell it for?",
     answers: [
       {option:"25,000 yen",answer:false},
       {option:"10,000 yen",answer:false},

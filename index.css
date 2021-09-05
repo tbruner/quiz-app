@@ -31,6 +31,7 @@ body {
 }
 #title {
   font-size: 1.75em;
+  text-align: center;
 }
 #qNumber {
   padding: 20px;
@@ -82,4 +83,19 @@ body {
 }
 .qSelect {
   background: #555;
+}
+@media screen and (max-width: 1320px) {
+  #container {
+    background-image: none;
+    background-color: black;
+    border: solid white;
+    height: 90vh;
+    width: 90vw;
+  }
+  #title {
+    font-size: 1.2em;
+  }
+  #question-text, #qNumber, .questions, .btn {
+    font-size: .75em;
+  }
 }
